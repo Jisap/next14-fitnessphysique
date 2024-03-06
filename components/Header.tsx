@@ -49,10 +49,15 @@ const Header = () => {
         }/>
         
         {/* desktop nav - hidden on small devices */}
-        <Nav containerStyles="flex gap-4 text-white hidden xl:flex"/>
+        <Nav containerStyles="flex gap-4 text-white text-base uppercase font-medium transition-all hidden xl:flex"/>
       
         {/* hide/open menu button */}
-        <div>
+        <div className="flex items-center gap-4">
+          {/* login & register */}
+          <div className="text-white flex items-center gap-4">
+            <button className="hover:text-accent transition-all text-base uppercase font-medium">Login</button>
+            <button className="hover:text-accent transition-all text-base uppercase font-medium">Register</button>
+          </div>
           <button
             onClick={() => setOpenNav(!openNav)} 
             className="text-white xl:hidden"
