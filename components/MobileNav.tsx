@@ -13,9 +13,9 @@ const links = [
   { name: 'contact', target: 'contact', offset: 0 },
 ]
 
-const Nav = ({ containerStyles }: { containerStyles: string }) => {
+const MobileNav = ({containerStyles}: {containerStyles: string}) => {
   return (
-    <nav className={containerStyles}>
+    <nav className={`${containerStyles}`}>
       {links.map((link, index) => {
         return (
           <ScrollLink
@@ -28,11 +28,11 @@ const Nav = ({ containerStyles }: { containerStyles: string }) => {
             className='cursor-pointer hover:text-accent transition-all'
           >
             {link.name}
-          </ScrollLink>  
+          </ScrollLink>
         )
       })}
     </nav>
   )
 }
 
-export default Nav
+export default MobileNav
