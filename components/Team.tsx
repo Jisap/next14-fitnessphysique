@@ -58,9 +58,23 @@ const Team = () => {
   return (
     <section className='py-12 xl:h-[110vh]' id="team">
       <div className="container mx-auto h-full flex flex-col items-center justify-center">
-        <h2 className="h2 text-center mb-6">Our trainers</h2>
+        <motion.h2 
+          variants={fadeIn("up", 0.4)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{once: false, amount: 0.2}}
+          className="h2 text-center mb-6"
+        >
+          Our trainers
+        </motion.h2>
         {/* trainers grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12 mb-12">
+        <motion.div 
+          variants={fadeIn("up", 0.6)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12 mb-12"
+        >
           {trainerData.map((trainer, index) => {
             return (
               <div key={index} className="flex flex-col items-center text-center">
@@ -73,7 +87,7 @@ const Team = () => {
                 </div>
                 <h4 className="h4 mb-2">{trainer.name}</h4>
                 <p className="uppercase text-xs tracking-[3px] mb-2">{trainer.role}</p>
-                <p className="mb-6">{trainer.description}</p>
+                <p className="mb-6 max-w-[320px] mx-auto">{trainer.description}</p>
                 <div className="flex gap-12 justify-center">
                   {trainer.social.map((social, index) => {
                     return (
@@ -88,7 +102,16 @@ const Team = () => {
               </div>
             )
           })}
-        </div>
+        </motion.div>
+        {/* btn */}
+        <motion.div
+          variants={fadeIn("up", 0.6)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.2 }}
+        >
+          <CustomButton containerStyles="w-[196px] h-[62px]" text="See all trainers" />
+        </motion.div>
       </div>
     </section>
   )
