@@ -22,7 +22,7 @@ const trainerData = [
   {
     image: '/assets/img/trainers/rosy.jpg',
     name: 'Rosy Rivera',
-    role: 'Body builder coach',
+    role: 'Body Pump coach',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, vero',
     social: [
       { icon: FaFacebook, href: 'http://facebook.com' },
@@ -33,7 +33,7 @@ const trainerData = [
   {
     image: '/assets/img/trainers/matt.jpg',
     name: 'Matt Stone',
-    role: 'Body builder coach',
+    role: 'Crossfit coach',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, vero',
     social: [
       { icon: FaFacebook, href: 'http://facebook.com' },
@@ -44,7 +44,7 @@ const trainerData = [
   {
     image: '/assets/img/trainers/sofia.jpg',
     name: 'Sofia Lauren',
-    role: 'Body builder coach',
+    role: 'Hyrox coach',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, vero',
     social: [
       { icon: FaFacebook, href: 'http://facebook.com' },
@@ -56,21 +56,36 @@ const trainerData = [
 
 const Team = () => {
   return (
-    <section className='h-screen bg-red-300' id="team">
-      <div className="container mx-auto">
-        <h2 className="">Our trainers</h2>
+    <section className='py-12 xl:h-[110vh]' id="team">
+      <div className="container mx-auto h-full flex flex-col items-center justify-center">
+        <h2 className="h2 text-center mb-6">Our trainers</h2>
         {/* trainers grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12 mb-12">
           {trainerData.map((trainer, index) => {
             return (
-              <div key={index} className="relative w-[320px] h-[360px] mx-auto mb-4">
-                <Image 
-                  src={trainer.image}
-                  fill
-
-                  alt='traner image'
-                />
-              </div>  
+              <div key={index} className="flex flex-col items-center text-center">
+                <div className="relative w-[320px] h-[360px] mx-auto mb-4">
+                  <Image 
+                    src={trainer.image}
+                    fill
+                    alt='traner image'
+                  />
+                </div>
+                <h4 className="h4 mb-2">{trainer.name}</h4>
+                <p className="uppercase text-xs tracking-[3px] mb-2">{trainer.role}</p>
+                <p className="mb-6">{trainer.description}</p>
+                <div className="flex gap-12 justify-center">
+                  {trainer.social.map((social, index) => {
+                    return (
+                      <div key={index}>
+                        <Link href={social.href} className="hover:text-accent transition-all">
+                          <social.icon className="text-lg"/>
+                        </Link>
+                      </div>  
+                    )
+                  })}
+                </div>
+              </div>
             )
           })}
         </div>
