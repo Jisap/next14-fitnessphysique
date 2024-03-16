@@ -65,8 +65,20 @@ const Blog = () => {
   return (
     <section className="bg-primary-300 text-white py-24" id="blog">
       <div className='container mx-auto'>
-        <h2 className='h2 text-center mb-8'>Blog</h2>
-        <div>
+        <motion.h2 
+          variants={fadeIn('up', 0.4)}
+          initial='hidden'
+          whileInView={'show'}
+          viewport={{once: false, amount: 0.2}}
+          className='h2 text-center mb-8'>
+            Blog
+        </motion.h2>
+        <motion.div
+          variants={fadeIn('up', 0.6)}
+          initial='hidden'
+          whileInView={'show'}
+          viewport={{ once: false, amount: 0.2 }}
+        >
           <Swiper
             slidesPerView={1}
             spaceBetween={30}
@@ -109,18 +121,25 @@ const Blog = () => {
               )
             })}
             <SwiperNavButtons 
-              containerStyles='absolute left-0 right-0 bottom-[16rem] w-full max-w-[370px] sm:max-w-[620px] md:max-w-[960px] xl:max-w-[1320px]'
-              btnStyles=''
-              iconStyles=''
+              containerStyles='absolute left-0 right-0 bottom-[16rem] w-full max-w-[370px] sm:max-w-[620px] 
+              md:max-w-[960px] xl:max-w-[1320px] mx-auto z-50 flex justify-between gap-1'
+              btnStyles='bg-accent text-white w-[56px] h-[56px] flex justify-center items-center
+              hover:bg-accent transition-all duration-300'
+              iconStyles='text-2xl'
             />
           </Swiper>
-        </div>
-        <div>
+        </motion.div>
+        <motion.div
+          variants={fadeIn('up', 0.8)}
+          initial='hidden'
+          whileInView={'show'}
+          viewport={{ once: false, amount: 0.2 }}
+        >
           <CustomButton 
             containerStyles='block w-[196px] h-[62px] mx-auto'
             text='View all'
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   )
