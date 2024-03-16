@@ -108,6 +108,11 @@ const Blog = () => {
                 </SwiperSlide>  
               )
             })}
+            <SwiperNavButtons 
+              containerStyles='absolute left-0 right-0 bottom-[16rem] w-full max-w-[370px] sm:max-w-[620px] md:max-w-[960px] xl:max-w-[1320px]'
+              btnStyles=''
+              iconStyles=''
+            />
           </Swiper>
         </div>
         <div>
