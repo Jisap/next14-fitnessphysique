@@ -13,15 +13,51 @@ import {
 import CustomButton from "./CustomButton"
 import { motion } from "framer-motion"
 
+const footerContainerVariant = {
+  hidden: {
+    opacity: 0
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.6,
+      duration: 0.5,
+      ease: 'linear',
+    },
+  },
+}
 
+const footerItem = {
+  hidden: {
+    y: 20,
+    opacity: 0
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.6, 0.3, 0.8],
+    },
+  },
+}
 
 const Footer = () => {
   return (
     <footer className="bg-primary-300 pt-24">
       <div className="container mx-auto pb-24">
-        <div className="text-white grid grid-cols-1 xl:grid-cols-4 gap-x-8 gap-y-12">
+        <motion.div
+          variants={footerContainerVariant}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{once: false, amount: 0.3}}
+          className="text-white grid grid-cols-1 xl:grid-cols-4 gap-x-8 gap-y-12"
+        >
           {/* info */}
-          <div className="flex flex-col gap-4">
+          <motion.div 
+            variants={footerItem}
+            className="flex flex-col gap-4"
+          >
             <Link href='#'>
               <Image 
                 src={'/assets/img/logo.png'}
@@ -49,9 +85,11 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </motion.div>
           {/* blog */}
-          <div className="">
+          <motion.div 
+            variants={footerItem}
+          >
             <h4 className="h4 text-accent mb-4">
               Recent blog post
             </h4>
@@ -80,11 +118,129 @@ const Footer = () => {
                 December 02, 2024
               </p>
             </div>
-          </div>
+          </motion.div>
           {/* gallery */}
-          <div className="bg-pink-300/20">gallery</div>
+          <motion.div
+            variants={footerItem}
+          >
+            <h4 className="h4 text-accent mb-4">
+              <div className="flex flex-wrap gap-2">
+                <Link href='#'>
+                  <Image 
+                    src={"/assets/img/trainers/david.jpg"}
+                    width={100}
+                    height={100}
+                    alt=""
+                  />
+                </Link>
+                <Link href='#'>
+                  <Image
+                    src={"/assets/img/trainers/matt.jpg"}
+                    width={100}
+                    height={100}
+                    alt=""
+                  />
+                </Link>
+                <Link href='#'>
+                  <Image
+                    src={"/assets/img/trainers/rosy.jpg"}
+                    width={100}
+                    height={100}
+                    alt=""
+                  />
+                </Link>
+                <Link href='#'>
+                  <Image
+                    src={"/assets/img/trainers/sofia.jpg"}
+                    width={100}
+                    height={100}
+                    alt=""
+                  />
+                </Link>
+                <Link href='#'>
+                  <Image
+                    src={"/assets/img/trainers/david.jpg"}
+                    width={100}
+                    height={100}
+                    alt=""
+                  />
+                </Link>
+                <Link href='#'>
+                  <Image
+                    src={"/assets/img/trainers/sofia.jpg"}
+                    width={100}
+                    height={100}
+                    alt=""
+                  />
+                </Link>
+                <Link href='#'>
+                  <Image
+                    src={"/assets/img/trainers/matt.jpg"}
+                    width={100}
+                    height={100}
+                    alt=""
+                  />
+                </Link>
+                <Link href='#'>
+                  <Image
+                    src={"/assets/img/trainers/rosy.jpg"}
+                    width={100}
+                    height={100}
+                    alt=""
+                  />
+                </Link>
+              </div>
+            </h4>
+          </motion.div>
           {/* newsletter */}
-          <div className="bg-pink-300/20">newsletter</div>
+          <motion.div 
+            variants={footerItem}
+          >
+            <h4 className="h4 text-accent mb-4">
+              Newsletter
+            </h4>
+            <div className="flex flex-col gap-4">
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo, nostrum! Sunt dolorum possimus quo molestias ab saepe ipsum facere esse!
+              </p>
+              <form className="flex items-center">
+                <input 
+                  type="text" 
+                  placeholder="Your email address" 
+                  className="h-[50px] outline-none px-4 text-primary-300"
+                />
+                <CustomButton 
+                  containerStyles="h-[50px] px-8"
+                  text="Send"
+                />
+              </form>
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
+      {/* copyright */}
+      <div className="text-white border-t border-white/20 py-12">
+        <div className="container mx-auto h-full">
+          <div className="flex items-center justify-between h-full">
+            <span>&copy; Copyright 2024 Fitphysique</span>
+            <ul className="flex gap-4 text-xl">
+              <li>
+                <Link href="#" className="text-white hover:text-accent transition-all">
+                  <FaFacebook />
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-white hover:text-accent transition-all">
+                  <FaTwitter />
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="text-white hover:text-accent transition-all">
+                  <FaYoutube />
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </footer>

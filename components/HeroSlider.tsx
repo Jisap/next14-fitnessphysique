@@ -21,7 +21,7 @@ const HeroSlider = () => {
               whileInView={"show"}
               viewport={{ once: false, amount: 0.2 }}
             >
-              <span>Where hard</span> work meet success
+              <span className='text-accent'>Where hard</span> work meet success
             </motion.h1>
             <motion.p
               className='text-white italic text-center lg:text-left mb-4'
